@@ -1,18 +1,19 @@
 
 // Crear una clase que cargue una imágen y que se muestre en la página.
+const RUTA_IMAGEN = ['./zoom.jpg', './cat.jpg'];
 
-const rutaImagen = '../../imagenes/Cat_inside_LIL_134199.jpg';
-const ruta = ''
-class Imagen{
+class Imagen {
     _ruta;
-    constructor(ruta){
+    constructor(ruta) {
         this._ruta = ruta;
     }
-    cargarImagen(){
-        const img = document.createElement('img')
-        img.src = this._ruta;
-        document.body.appendChild(img);
+    cargarImagen() {
+        RUTA_IMAGEN.forEach(ruta => {
+            const IMG = document.createElement('img');
+            IMG.src = ruta;
+            document.body.appendChild(IMG);
+        });
     }
 }
-const imagen = new Image(rutaImagen);
-imagen.cargarImagen();
+const IMAGEN = new Imagen(RUTA_IMAGEN);
+IMAGEN.cargarImagen();
