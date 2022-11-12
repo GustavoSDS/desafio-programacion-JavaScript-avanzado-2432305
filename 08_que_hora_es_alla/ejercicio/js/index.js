@@ -50,3 +50,16 @@ const zonasHorarias = [
         "texto": "(UTC+08:00) Perth",
     }
 ];
+
+const ms_hora = 1000 * 60 * 60;
+
+for (const zona of zonasHorarias){
+    console.log(`${zona.texto}: ${calcularZonaHorarioa(zona.offset)}`);
+}
+
+function calcularZonaHorarioa(offset) {
+    const hoy = new Date();
+    const utc = hoy.getTime();
+    const zonaTiempo = new Date(utc + (offset * ms_hora));
+    return zonaTiempo.toLocaleString();
+}
