@@ -13,12 +13,12 @@ for (const img of rutasImagenes) {
 
 Promise.all(PROMESAS)
    .then(respuestas => {
-    PROMESAS.all(respuestas.map(respuesta => respuestas.blob()));
-    then(blobs => {
+    Promise.all(respuestas.map(respuesta => respuesta.blob()))
+    .then(blobs => {
         const fragmento = document.createDocumentFragment();
         for (const blob of blobs) {
             const IMG_URL = URL.createObjectURL(blob);
-            const IMG_HTML = HTML.createElement('img');
+            const IMG_HTML = document.createElement('img');
             IMG_HTML.src = IMG_URL;
             fragmento.appendChild(IMG_HTML); 
         }
