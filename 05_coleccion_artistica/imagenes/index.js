@@ -1,7 +1,7 @@
 const imagenes = [
     {
         id: 0,
-        src: '../../imagenes/Autumn leaves_LIL_134164.jpg'
+        src: '../../'
     },
     {
         id: 1,
