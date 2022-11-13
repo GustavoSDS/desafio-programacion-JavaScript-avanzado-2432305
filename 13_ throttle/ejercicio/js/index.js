@@ -5,11 +5,21 @@ const input = document.getElementById('input');
 const resultados = document.getElementById('resultados');
 
 input.addEventListener('input', () => {
-    reversa();
+    throttle(reversa(), 500);
 });
 
 function reversa() {
     resultados.innerText = '';
     const valor = input.value;
     resultados.innerText = valor.split('').reverse().join('');
+}
+let idTimer;
+function throttle(func, tiempo) {
+    if (idTimer) {
+        return;
+    }
+    idTimer = setTimeout(() => {
+        func();
+        idTimer = undefined;
+    }, tiempo);
 }
