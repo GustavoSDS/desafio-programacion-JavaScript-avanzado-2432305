@@ -8,6 +8,10 @@ class Nodo {
 
 function invertir(nodo) {
     // Escribir el código para invertir el árbol binario.
+    if(!nodo || !nodo.izquierda && !nodo.derecha){
+        return nodo;
+    }
+    return new Nodo(nodo.valor, invertir(nodo.derecha), invertir(nodo.izquierda));
 };
 
 
