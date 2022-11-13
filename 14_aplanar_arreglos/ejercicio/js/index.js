@@ -6,3 +6,20 @@ const arreglo = [
     [5, [7, 8, 9]],
     [10, 11, 12, [7, 8, [90, 2, 13]], 14, 15]
 ];
+
+//Aplanar el arreglo
+const SIMPLE = arreglo.flat(3);
+console.log(SIMPLE);
+
+const arregloPlano = [];
+function aplanar(arr) {
+    for (const el of arr) {
+        if (Array.isArray(el)) {
+            aplanar(el);
+        } else {
+            arregloPlano.push(el);
+        }
+    }
+}
+aplanar(arreglo);
+console.log(arregloPlano);
